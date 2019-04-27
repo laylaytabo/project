@@ -1,4 +1,5 @@
 import model from '../models';
+import user from '../models/user';
 
         const { User } = model;
 
@@ -18,6 +19,12 @@ import model from '../models';
                   userData
                 }))
             }
+            static list(req, res) {
+              return User
+                .findAll()
+                .then(users=> res.status(200).send(users));
+            }
         }
+        
 
         export default Users;
